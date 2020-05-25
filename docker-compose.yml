@@ -1,0 +1,23 @@
+version: '3.1'
+
+services:
+  moviesdb:
+    image: postgres
+    ports:
+      - "5432:5432"
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: moviedb
+      POSTGRES_USER: user
+    volumes:
+      - ./data:/var/lib/postgresql
+
+  movies-service:
+    image: tardelli/movies-java-postgresql-quarkus-jvm
+    environment:
+      QUARKUS_DATASOURCE_URL: jdbc:postgresql://moviesdb:5432/moviedb
+    ports:
+      - "8080:8080"
+    depends_on:
+      - moviesdb
