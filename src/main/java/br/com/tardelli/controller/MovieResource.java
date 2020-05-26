@@ -18,11 +18,9 @@ import org.jboss.resteasy.annotations.jaxrs.PathParam;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
-import javax.validation.*;
+import javax.validation.Valid;
 import javax.validation.executable.ValidateOnExecution;
 import javax.ws.rs.*;
-import javax.ws.rs.Path;
-import javax.ws.rs.container.ResourceContext;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -40,8 +38,6 @@ public class MovieResource {
 
   private final MovieRepository repository;
 
-  @Context
-  ResourceContext resourceContext;
   @Context
   UriInfo uriInfo;
 
