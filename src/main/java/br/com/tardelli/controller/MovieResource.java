@@ -123,6 +123,7 @@ public class MovieResource {
               )
           )
       ),
+      @APIResponse(responseCode = "404", description = "Movie not found."),
       @APIResponse(responseCode = "500", description = "There was an internal server error.")
   })
   @Produces(MediaType.APPLICATION_JSON)
